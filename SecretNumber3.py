@@ -7,10 +7,9 @@ attempts = 0
 
 with open("Score_sheet.json" , "r") as score_file:
     score_data = json.loads(score_file.read())
-    #score_data.sort()
     print("all scores: " + str(score_data))
-
-    for score_dict in score_data:
+    sorted_score_data = sorted(score_data, key=lambda a: a["attempts"])[:3]
+    for score_dict in sorted_score_data:
         print("Name: " + score_dict["name"] + ", attempts: " + str(score_dict["attempts"]) + ", wrong guess: " + str(score_dict["wrong"]) + ", time: " + str(score_dict["time"]) + ", guessed number " + str(score_dict["guessed_number"]))
 name = input("please enter your name: ")
 while True:
