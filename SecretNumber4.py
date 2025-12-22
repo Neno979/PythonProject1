@@ -18,6 +18,7 @@ printscore(0, score_data)
 printscore(3, score_data)
 
 name = input("please enter your name: ")
+level = input("please enter your level, if you want easy press (e) else press enter ")
 while True:
     guess = int(input("please guess integer number between 1 and 30: "))
     attempts += 1
@@ -32,8 +33,8 @@ while True:
         printscore(1, attempts)
 
         break
-    elif guess > secret:
+    elif guess > secret and level=="e":
         print("Sorry, you guessed too high! try lower")
-    elif guess < secret:
+    elif guess < secret and level =="e":
         print("Sorry, you guessed too low! try higher")
 
