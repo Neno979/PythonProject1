@@ -1,4 +1,4 @@
-class Player():
+class Player:
     def __init__( self, first_name , last_name , height_cm , weight_kg ):
         self.first_name = first_name
         self.last_name = last_name
@@ -8,12 +8,6 @@ class Player():
     def weight_lbs(self):
         pounds = self.weight_kg * 2.20
         return pounds
-
-
-
-
-
-
 
 class BasketballPlayer(Player):
     def __init__(self, first_name , last_name, height_cm, weight_kg, points, assists, rebounds ):
@@ -29,6 +23,18 @@ class FootballPlayer(Player):
         self.assists = assists
         self.yellow_cards = yellow_cards
 
+def add_player(x):
+    fn = input("enter first name : ")
+    ln = input("enter last name : ")
+    w = input("enter weight : ")
+    h = input("enter height : ")
+    a = input("enter assists : ")
+    if x == 0:
+        p = input("enter points : ")
+        r = input("enter rebounds: ")
+    else:
+        g = input("enter goals : ")
+        y = input("enter yellow cards: ")
 
 
 Lebron = BasketballPlayer("Lebron" , "James" , 203 , 113 , 30.7 , 9.3 , 6.3 )
@@ -45,11 +51,13 @@ print (Messi.first_name + " scored " + str(Messi.goals) + " goals!")
 while True:
     add = input("do you wish to add new player? y/n : ")
     if add == "y":
-        choose = input("Do you wish to add Basketbal player or futbal player? (b/f)")
+        choose = input("Do you wish to add Basketball player or football player? (b/f)")
         if choose == "b":
-            print("basketbal player")
+            add_player(0)
+            print("basketball player")
         elif choose == "f":
-            print("futbal player")
+            add_player(1)
+            print("football player")
         else:
             print("invalid input")
     else:
