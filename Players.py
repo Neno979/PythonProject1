@@ -42,3 +42,15 @@ print ( Durant.first_name + " weight is " + str(Durant.weight_kg))
 
 print (Messi.first_name + " scored " + str(Messi.goals) + " goals!")
 
+while True:
+    add = input("do you wish to add new player? y/n : ")
+    if add == "y":
+        choose = input("Do you wish to add Basketbal player or futbal player? (b/f)")
+        if choose == "b":
+            print("basketbal player")
+        elif choose == "f":
+            print("futbal player")
+        else:
+            print("invalid input")
+    else:
+        break
