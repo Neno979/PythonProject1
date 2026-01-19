@@ -1,3 +1,5 @@
+import json
+
 class Player:
     def __init__( self, first_name , last_name , height_cm , weight_kg ):
         self.first_name = first_name
@@ -25,6 +27,7 @@ class FootballPlayer(Player):
         self.assists = assists
         self.yellow_cards = yellow_cards
 
+#creating and returning object based on user input
 def add_player(x):
     fn = input("enter first name : ")
     ln = input("enter last name : ")
@@ -48,11 +51,19 @@ Durant = BasketballPlayer("Kevin" , "Durant" , 210 , 100 , 27.2 , 7.1 , 5.1 )
 
 Ronaldo = FootballPlayer( "Cristiano" , "Ronaldo" , 187 , 85 , 25, 6, 7)
 Messi = FootballPlayer( "Leo" , "Messi" , 170 , 67 , 25, 6, 7)
+
 print ( Lebron.first_name + " weight in lbs is : " + str(Lebron.weight_lbs()))
 
 print ( Durant.first_name + " weight is " + str(Durant.weight_kg))
 
 print (Messi.first_name + " scored " + str(Messi.goals) + " goals!")
+
+#opening file and loading data from file to list of dictionaries
+with open("Playersbas_sheet.json" , "r") as bas_file:
+    playersbas_d = json.load(bas_file)
+
+#conversion to list of objects
+    playersbas = [BasketballPlayer(player["first_name"] , player["last_name"] , player["height_cm"] , player["weight_kg"] , player["points"] , player["assists"], player["rebounds"]) for player in playersbas_d]
 
 while True:
     add = input("do you wish to add new player? y/n : ")
@@ -60,7 +71,17 @@ while True:
         choose = input("Do you wish to add Basketball player or football player? (b/f)")
         if choose == "b":
             NewPlayer = add_player("bas")
-            print(NewPlayer.first_name)
+#adding new object to list of objects
+            playersbas.append(NewPlayer)
+#converting list of objects to list of dictionaries
+            playersbas_d = [player.__dict__ for player in playersbas]
+#opening file and saving data from list of dictionaries to file
+            with open("Playersbas_sheet.json" , "w") as bas_file:
+                json.dump(playersbas_d, bas_file)
+            print(playersbas)
+            for player in playersbas:
+                print(player.first_name)
+
         elif choose == "f":
             NewPlayer = add_player("foo")
             print(NewPlayer.first_name)
