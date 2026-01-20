@@ -61,10 +61,13 @@ print (Messi.first_name + " scored " + str(Messi.goals) + " goals!")
 #opening file and loading data from file to list of dictionaries
 with open("Playersbas_sheet.json" , "r") as bas_file:
     playersbas_d = json.load(bas_file)
-
 #conversion to list of objects
     playersbas = [BasketballPlayer(player["first_name"] , player["last_name"] , player["height_cm"] , player["weight_kg"] , player["points"] , player["assists"], player["rebounds"]) for player in playersbas_d]
-
+#opening file and loading data from file to list of dictionaries
+with open("playersfoo_sheet.json" , "r") as foo_file:
+    playersfoo_d = json.load(foo_file)
+#conversion to list of objects
+    playersfoo = [FootballPlayer(player["first_name"] ,player["last_name"] , player["height_cm"] , player["weight_kg"] ,player["goals"] , player["assists"] , player["yellow_cards"]) for player in playersfoo_d]
 while True:
     add = input("do you wish to add new player? y/n : ")
     if add == "y":
@@ -84,7 +87,15 @@ while True:
 
         elif choose == "f":
             NewPlayer = add_player("foo")
-            print(NewPlayer.first_name)
+#adding new object to list of objects
+            playersfoo.append(NewPlayer)
+#converting list of objects to list of dictionaries
+            playersfoo_d = [player.__dict__ for player in playersfoo]
+#opening file and saving data from list of dictionaries to file
+            with open("playersfoo_sheet.json" , "w") as foo_file:
+                json.dump(playersfoo_d , foo_file)
+            for player in playersfoo:
+                print(player.first_name)
         else:
             print("invalid input")
     else:
