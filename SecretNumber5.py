@@ -30,6 +30,7 @@ while True:
     att += 1
     if guess == secret:
         t = str(datetime.datetime.now())
+
         wr = att -1
         new_result = Result(nm, att, wr, t, guess)
         score_data.append(new_result)
