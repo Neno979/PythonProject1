@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Portfolio</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title%}
+    portfolio
+{% endblock title%}
+
+{% block content %}
     <h1>Portfolio page</h1>
     <hr>
-    <p> <a href="fakebook"> fakebook </a> </p>
+    <p> <a href="fakebook"> fakebook </a></p>
     <hr>
     <p> <a href="boogle"> boogle </a> </p>
     <hr>
     <p> <a href="bootsweb"> bootsweb </a> </p>
-</body>
-</html>
+{% endblock content %}
+
+

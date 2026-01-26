@@ -1,16 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>about me</title>
-</head>
-<body>
-    <h3 class="d-flex justify-content-center ">GIGAJ</h3>
-                    <p>Founded in 2020 in Croatia, our company specializes in industrial automation and software engineering for high-performance, mission-critical environments. From the very beginning, our goal has been to combine deep technical expertise with reliable execution, helping energy and industrial facilities operate with greater efficiency, precision, and safety.
+{% extends "base.html" %}
+
+{% block title%}
+    About-me
+{% endblock title%}
+
+{% block content %}
+    <h1>About me page</h1>
+    <hr>
+    <h3>GIGAJ</h3>
+    <p>Founded in 2020 in Croatia, our company specializes in industrial automation and software engineering for high-performance, mission-critical environments. From the very beginning, our goal has been to combine deep technical expertise with reliable execution, helping energy and industrial facilities operate with greater efficiency, precision, and safety.
 
 In just a few years, we have successfully delivered seven automation projects across power plants throughout the European Union. These projects span system integration, control system development, SCADA modernization, and tailored software solutions that ensure seamless and optimized plant operation. Our focus on quality, transparency, and long-term reliability has earned us strong working relationships with clients who trust us to support their most important infrastructure.
 
 As a growing team of engineers and automation specialists, we continually invest in new technologies, industry standards, and innovative approaches. Whether modernizing existing systems or delivering complete automation solutions, we are committed to providing engineering that stands the test of time. Our mission is simple: empower industrial facilities with smart, robust, and future-ready automation.
-                    </p>
-</body>
-</html>
+    </p>
+{% endblock content %}
+
+
