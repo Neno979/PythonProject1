@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title> {% block title%} {% endblock title%}</title>
-    <link rel="stylesheet" href ="/static/css/jinja_style_dark.css">
+
+        {% if color == "light" %}
+            <link rel="stylesheet" href ="/static/css/jinja_style_light.css">
+        {% else %}
+            <link rel="stylesheet" href ="/static/css/jinja_style_dark.css">
+        {% endif %}
+
+
+
 </head>
 <body>
     {% block content %}
