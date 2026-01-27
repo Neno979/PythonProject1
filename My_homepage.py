@@ -2,6 +2,10 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+@app.context_processor
+def color():
+    return { "color": "dark" }
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -14,15 +18,15 @@ def about_me():
 def portfolio():
     return render_template("portfolio.html")
 
-@app.route("/boogle")
+@app.route("/portfolio/boogle")
 def boogle():
     return render_template("boogle.html")
 
-@app.route("/fakebook")
+@app.route("/portfolio/fakebook")
 def fakebook():
     return render_template("fakebook.html")
 
-@app.route("/bootsweb")
+@app.route("/portfolio/bootsweb")
 def bootsweb():
     return render_template("bootsweb.html")
 
