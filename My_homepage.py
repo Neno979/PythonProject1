@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.context_processor
 def color():
-    return { "color": "dark" }
+    return { "color": "light" }
 
 @app.route("/")
 def index():

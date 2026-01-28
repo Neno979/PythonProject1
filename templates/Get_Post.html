@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title%}
+    Get-Post
+{% endblock title%}
+
+{% block content %}
+    <h1>Get-Post page</h1>
+    <hr>
+    <form method ="post">
+        <input type="text" name="currency_name" placeholder="enter currency name">
+        <br>
+        <input type="number" name="currency_amount" placeholder="enter currency amount">
+        <br>
+        <input type="number" name="currency_price" placeholder="enter currency price">
+        <br>
+        <button type="submit">submit</button>
+    </form>
+
+{% endblock content %}
